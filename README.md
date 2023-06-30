@@ -1,4 +1,4 @@
 # Valtech Optimizely DeepL Translation
 
 ## Description
-Lorem ipsum
+1.) Add AddDeepLTranslation extension to startup.cs ConfigureServices method

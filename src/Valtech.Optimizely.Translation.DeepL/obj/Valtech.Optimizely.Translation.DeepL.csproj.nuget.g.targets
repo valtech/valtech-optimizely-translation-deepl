@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui.settings\12.8.0\build\net6.0\EPiServer.Cms.UI.Settings.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui.settings\12.8.0\build\net6.0\EPiServer.Cms.UI.Settings.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui.admin\12.8.0\build\net6.0\EPiServer.Cms.UI.Admin.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui.admin\12.8.0\build\net6.0\EPiServer.Cms.UI.Admin.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui\12.8.0\build\net6.0\EPiServer.Cms.UI.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui\12.8.0\build\net6.0\EPiServer.Cms.UI.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.labs.languagemanager\5.1.3\build\net6.0\EPiServer.Labs.LanguageManager.targets" Condition="Exists('$(NuGetPackageRoot)episerver.labs.languagemanager\5.1.3\build\net6.0\EPiServer.Labs.LanguageManager.targets')" />
+  </ImportGroup>
+</Project>

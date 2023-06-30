@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\puneet.garg\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.5.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\puneet.garg\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <None Include="$(NuGetPackageRoot)episerver.labs.languagemanager\5.1.3\contentFiles\any\any\modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" Condition="Exists('$(NuGetPackageRoot)episerver.labs.languagemanager\5.1.3\contentFiles\any\any\modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip')">
+      <NuGetPackageId>EPiServer.Labs.LanguageManager</NuGetPackageId>
+      <NuGetPackageVersion>5.1.3</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip</TargetPath>
+      <DestinationSubDirectory>modules\_protected\EPiServer.Labs.LanguageManager\</DestinationSubDirectory>
+      <Private>True</Private>
+      <Link>modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip</Link>
+    </None>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\puneet.garg\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgEPiServer_Framework Condition=" '$(PkgEPiServer_Framework)' == '' ">C:\Users\puneet.garg\.nuget\packages\episerver.framework\12.6.0</PkgEPiServer_Framework>
+    <PkgEPiServer_CMS_Core Condition=" '$(PkgEPiServer_CMS_Core)' == '' ">C:\Users\puneet.garg\.nuget\packages\episerver.cms.core\12.6.0</PkgEPiServer_CMS_Core>
+  </PropertyGroup>
+</Project>

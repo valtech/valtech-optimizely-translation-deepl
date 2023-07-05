@@ -3,6 +3,7 @@ using DeepL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using EPiServer.Labs.LanguageManager.Configuration;
@@ -10,6 +11,7 @@ using EPiServer.Logging;
 using Valtech.Optimizely.Translation.DeepL.Presentation.Interface;
 using Valtech.Optimizely.Translation.DeepL.Presentation.ViewModels;
 using static Org.BouncyCastle.Math.EC.ECCurve;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Valtech.Optimizely.Translation.DeepL.Presentation
 {
@@ -31,6 +33,8 @@ namespace Valtech.Optimizely.Translation.DeepL.Presentation
             var documentData = CheckDocumentUsageAndLimitsAsync().Result;
             var sourecList = GetSourceLanguageList();
             var targetList = GetTargetLanguageList();
+            var glossaryList = GlossariesLanguageList();
+            //var newGlossary = CreateGlossaries();
 
 
            return new DeepLDetailViewModel{
@@ -39,7 +43,8 @@ namespace Valtech.Optimizely.Translation.DeepL.Presentation
                DocumentCount = documentData.CountData ,
                DocumentLimit= documentData.Limit,
                SourceLanguageList = sourecList,
-               TargetLanguageList = targetList
+               TargetLanguageList = targetList,
+               GlossaryInfoList = glossaryList.ToList()
            };
         }
 
@@ -150,7 +155,7 @@ namespace Valtech.Optimizely.Translation.DeepL.Presentation
             var listData = new List<CustomLanguageList>();
             foreach (var lang in targetLanguages)
             {
-                if (!lang.SupportsFormality) continue;
+                //if (!lang.SupportsFormality) continue;
                 listData.Add(new CustomLanguageList()
                 {
                     Code = lang.Code,
@@ -195,37 +200,24 @@ namespace Valtech.Optimizely.Translation.DeepL.Presentation
         }
         ////Glossaries 
 
-        //private void GlossariesLanguageList()
-        //{
-        //    if (string.IsNullOrEmpty(Config?.SubscriptionKey))
-        //    {
-        //        _logger.Error("DeepL Authentication Key is required.");
+        private IEnumerable<GlossaryInfo> GlossariesLanguageList()
+        {
+            var subscriptionKey = LanguageManagerConfig.ActiveTranslatorProvider.SubscriptionKey;
 
-        //        //return new CheckUsageDetails { IsSuccess = false };
-        //    }
+            if (string.IsNullOrEmpty(subscriptionKey))
+            {
+                _logger.Error("DeepL Authentication Key is required.");
 
-        //    var translator = new Translator(Config.SubscriptionKey);
-        //    var listGlossaries = translator.ListGlossariesAsync(CancellationToken.None);
-
-
-        //}
-
-        //private void CreateGlossaries(string displayName, string sourceLanguageCode, string targetLanguageCode, GlossaryEntries entries)
-        //{
-        //    if (string.IsNullOrEmpty(Config?.SubscriptionKey))
-        //    {
-        //        _logger.Error("DeepL Authentication Key is required.");
-
-        //        //return new CheckUsageDetails { IsSuccess = false };
-        //    }
-
-        //    var translator = new Translator(Config.SubscriptionKey);
-
-        //    var newGlossaries = translator.CreateGlossaryAsync(displayName, sourceLanguageCode, targetLanguageCode, entries);
-        //    //var deleteGlossaries = translator.DeleteGlossaryAsync("ID");
-        //    //var deleteGlossaries2 = translator.DeleteGlossaryAsync(GlossaryInfo );
+                return new List<GlossaryInfo>();
+            }
 
 
-        //}
+            var translator = new Translator(subscriptionKey);
+            var listGlossaries = translator.ListGlossariesAsync(CancellationToken.None)?.Result?.ToList();
+
+            return listGlossaries.ToList();
+
+        }
+
     }
 }

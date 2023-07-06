@@ -14,7 +14,6 @@ public class CustomLanguageManagerConfig : LanguageManagerConfig
     {
         get
         {
-            // ActiveTranslatorProvider.ProviderTypeName == $"{typeof(DeepLMachineTranslatorProvider).FullName},{typeof(DeepLMachineTranslatorProvider).Assembly.GetName().Name}"
             if (ActiveTranslatorProvider.ProviderTypeName.StartsWith(typeof(DeepLMachineTranslatorProvider).FullName!, StringComparison.InvariantCulture)) 
             {
                 return new DeepLTranslatorProviderConfig
